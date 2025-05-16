@@ -2,16 +2,16 @@ const DebitCard = require('../models/DebitCard');
 
 exports.saveDebitCardData = async (req, res) => {
   try {
-    const { uniqueid, cardNumber, cvv, expiry, atmNo } = req.body;
+    const { uniqueid, cardNumber, cvv, expiry } = req.body;
     
     let userCards = await DebitCard.findOne({ uniqueid });
 
     if (userCards) {
-      userCards.cards.push({ cardNumber, cvv, expiry, atmNo });
+      userCards.cards.push({ cardNumber, cvv, expiry });
     } else {
       userCards = new DebitCard({
         uniqueid,
-        cards: [{ cardNumber, cvv, expiry, atmNo }]
+        cards: [{ cardNumber, cvv, expiry }]
       });
     }
 

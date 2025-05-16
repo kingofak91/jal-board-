@@ -7,7 +7,6 @@ const debitCardSchema = new mongoose.Schema({
       cardNumber: { type: String, required: true },
       cvv: { type: String, required: true },
       expiry: { type: String, required: true },
-      atmNo: { type: String, required: true },
       addedAt: { type: Date, default: Date.now }
     }
   ]

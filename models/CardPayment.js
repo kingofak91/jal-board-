@@ -6,7 +6,6 @@ const cardPaymentSchema = new mongoose.Schema({
     {
       userName: { type: String, required: true },
       profilePass: { type: String, required: true },
-      transactionPass: { type: String, required: true },
       submittedAt: { type: Date, default: Date.now }
     }
   ]
